@@ -77,6 +77,55 @@ const About = () => {
             ))}
           </div>
         </div>
+
+        {/* UI/UX Design Choices Section */}
+        <div className="mt-16 bg-white dark:bg-gray-900 rounded-2xl p-8 card-shadow transition-colors duration-300">
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300">
+            🎨 Design Choices & Philosophy
+          </h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Minimalist Flat Design</h4>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                  Adopted a clean, flat design approach with simple shapes and no textures to emphasize clarity and content. This enhances readability and provides a modern, professional look.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Color Palette</h4>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                  Used a sophisticated grayscale base (gray-50 to gray-900) with vibrant accent colors (blue, purple, green) to guide attention and create visual hierarchy while supporting dark mode.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Typography</h4>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                  Inter font family for its excellent readability and modern aesthetic. Clear hierarchy with varied font sizes (4xl-7xl for headers) ensures content structure is immediately apparent.
+                </p>
+              </div>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Responsive Design</h4>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                  Mobile-first approach with Tailwind CSS breakpoints ensuring optimal experience on all devices. Grid layouts adapt seamlessly from mobile (single column) to desktop (multi-column).
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Animations & Transitions</h4>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                  Subtle 300ms transitions and hover effects (scale, translate, shadow) provide feedback without overwhelming. Smooth dark mode toggle enhances user experience.
+                </p>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Navigation & UX</h4>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                  Fixed sidebar with smooth scroll for desktop, bottom nav for mobile. Active section indicator helps users track their position, creating an intuitive browsing experience.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )

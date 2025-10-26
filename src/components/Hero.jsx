@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from 'lucide-react'
+import { Github, Linkedin, Mail, Download } from 'lucide-react'
 
 const Hero = () => {
   return (
@@ -27,13 +27,13 @@ const Hero = () => {
             </p>
 
             <p className="text-lg font-semibold text-gray-900 dark:text-white transition-colors duration-300">
-              Currently seeking an apprenticeship opportunity
+              🎯 Currently seeking an apprenticeship opportunity
             </p>
 
             {/* Social Buttons */}
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               <a
-                href="https://github.com/clementgarreau"
+                href="https://github.com/garro3"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors duration-300"
@@ -57,45 +57,26 @@ const Hero = () => {
                 <Mail size={20} />
                 <span className="font-medium">Email</span>
               </a>
+              <a
+                href="/CV_Clement_Garreau.pdf"
+                download
+                className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-300"
+              >
+                <Download size={20} />
+                <span className="font-medium">Download CV</span>
+              </a>
             </div>
           </div>
 
-          {/* Right Content - Code Preview */}
-          <div className="hidden lg:block">
-            <div className="bg-gray-900 dark:bg-gray-800 rounded-2xl p-6 card-shadow-hover transition-colors duration-300">
-              <div className="flex gap-2 mb-4">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-              </div>
-              <pre className="text-sm text-gray-300 dark:text-gray-200 overflow-x-auto transition-colors duration-300">
-                <code>{`const developer = {
-  name: "Clément Garreau",
-  role: "Full-Stack Developer",
-  location: "France 🇫🇷",
-  
-  skills: [
-    "React", "Ruby",
-    "JavaScript", "Python"
-  ],
-  
-  passion: "Building amazing
-           web experiences",
-  
-  currentlyLearning: [
-    "Advanced Architecture",
-    "System Design"
-  ],
-  
-  seeking: "Apprenticeship",
-  openTo: "Collaboration",
-  
-  contact: {
-    email: "garreau.clement@gmail.com",
-    available: true
-  }
-};`}</code>
-              </pre>
+          {/* Right Content - Professional Photo */}
+          <div className="hidden lg:flex justify-center items-center">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur-2xl opacity-20"></div>
+              <img 
+                src="/photo.jpg" 
+                alt="Clément Garreau - Junior Developer" 
+                className="relative w-full max-w-md rounded-2xl shadow-2xl object-cover hover:scale-105 transition-transform duration-300"
+              />
             </div>
           </div>
         </div>
