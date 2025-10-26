@@ -1,6 +1,7 @@
 # Portfolio - Clément Garreau
 
 Portfolio personnel moderne et responsive développé avec React, Vite et Tailwind CSS.
+Deployed at: https://garro3.github.io/portfolio/
 
 ## 🚀 Technologies
 
@@ -180,4 +181,4 @@ Ce projet est personnel et peut être utilisé comme référence pour vos propre
 
 ---
 
-Développé avec ❤️ par Clément Garreau
+Développé par Clément Garreau
