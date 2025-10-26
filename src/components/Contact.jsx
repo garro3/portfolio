@@ -23,23 +23,41 @@ const Contact = () => {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const response = await fetch('https://formspree.io/f/xdkojqzy', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      
+      if (response.ok) {
+        setIsSubmitting(false)
+        setSubmitStatus('success')
+        setFormData({ name: '', email: '', subject: '', message: '' })
+        
+        setTimeout(() => {
+          setSubmitStatus(null)
+        }, 3000)
+      } else {
+        throw new Error('Form submission failed')
+      }
+    } catch (error) {
       setIsSubmitting(false)
-      setSubmitStatus('success')
-      setFormData({ name: '', email: '', subject: '', message: '' })
+      setSubmitStatus('error')
       
       setTimeout(() => {
         setSubmitStatus(null)
       }, 3000)
-    }, 1500)
+    }
   }
 
   const contactInfo = [
     {
       icon: Mail,
       label: 'Email',
-      value: 'garreau.clement@gmail.com',
+      value: 'garreau.clem03@gmail.com',
       href: null,
     },
     {
@@ -210,6 +228,12 @@ const Contact = () => {
               {submitStatus === 'success' && (
                 <div className="p-4 bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-700 text-green-700 dark:text-green-400 rounded-lg text-center transition-colors duration-300">
                   ✓ Message sent successfully! I'll reply shortly.
+                </div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <div className="p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-700 text-red-700 dark:text-red-400 rounded-lg text-center transition-colors duration-300">
+                  ✗ Failed to send message. Please try again or contact me directly.
                 </div>
               )}
             </form>
