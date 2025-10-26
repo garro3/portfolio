@@ -39,7 +39,7 @@ const Skills = () => {
         <div className="mt-16 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 text-center transition-colors duration-300">
           <p className="text-lg text-gray-600 dark:text-gray-300 transition-colors duration-300">
             <span className="font-semibold text-gray-900 dark:text-white">Always learning</span> 
-            {' '}— I continuously train myself in the latest technologies and best practices in web development.
+            {' '}— I continuously train myself in the latest technologies and new language.
           </p>
         </div>
       </div>

@@ -6,19 +6,21 @@ const Experience = () => {
       id: 1,
       title: 'Master in Information Systems Architecture',
       organization: 'Epitech',
+      organizationUrl: 'https://www.epitech.eu/',
       period: '2025 - Present',
       location: 'France',
       icon: GraduationCap,
       iconColor: 'text-blue-600',
       iconBg: 'bg-blue-50 dark:bg-blue-900/20',
-      description: 'In-depth training in software architecture, development of complex applications, and technical project management. Acquisition of advanced skills in designing scalable and maintainable systems.',
-      tags: ['JavaScript', 'Python', 'PHP', 'HTML', 'CSS'],
+      description: 'Currently in my first year at Epitech, I’m pursuing advanced training in software architecture, complex applications, and project management. With its unique project-based pedagogy, I gain hands-on experience working on real-world projects, from design to implementation, while continuously developing my skills.',
+      tags: ['JavaScript', 'Python', 'PHP', 'HTML', 'CSS', 'Java'],
       isCurrent: true,
     },
     {
       id: 2,
       title: 'Full-Stack Web Developer Training',
       organization: 'Le Wagon',
+      organizationUrl: 'https://www.lewagon.com/fr',
       period: '2025',
       location: 'France',
       icon: Rocket,
@@ -70,9 +72,14 @@ const Experience = () => {
                           )}
                         </div>
                         <div className="flex flex-wrap items-center gap-4 text-gray-600 dark:text-gray-300 transition-colors duration-300">
-                          <span className="font-semibold text-gray-900 dark:text-white transition-colors duration-300">
+                          <a 
+                            href={exp.organizationUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+                          >
                             {exp.organization}
-                          </span>
+                          </a>
                           <span className="flex items-center gap-1">
                             {exp.period}
                           </span>

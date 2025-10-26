@@ -40,13 +40,13 @@ const Contact = () => {
       icon: Mail,
       label: 'Email',
       value: 'garreau.clement@gmail.com',
-      href: 'mailto:garreau.clement@gmail.com',
+      href: null,
     },
     {
       icon: Phone,
       label: 'Phone',
       value: '07 69 87 73 93',
-      href: 'tel:+33769877393',
+      href: null,
     },
     {
       icon: MapPin,
@@ -72,7 +72,7 @@ const Contact = () => {
           <div className="space-y-8">
             <div className="space-y-4">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white transition-colors duration-300">
-                Let's discuss something special
+                Let's contact me.
               </h3>
               <p className="text-gray-600 dark:text-gray-300 transition-colors duration-300">
                 I'm always open to collaboration opportunities, 

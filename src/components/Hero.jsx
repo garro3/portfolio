@@ -1,8 +1,11 @@
-import { Github, Linkedin, Mail, Download } from 'lucide-react'
+import { Github, Linkedin, Mail, Download } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-20 dark:bg-gray-900 transition-colors duration-300">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-20 dark:bg-gray-900 transition-colors duration-300"
+    >
       <div className="max-w-7xl w-full mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -21,13 +24,13 @@ const Hero = () => {
             </div>
 
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-xl transition-colors duration-300">
-              Passionate about web development and new technologies, 
-              I create modern and high-performance digital experiences. 
-              Always looking for new challenges to develop my skills.
+              Passionate about tech, I turn ideas into modern, high-performance
+              digital experiences. Every project is a new challenge to learn,
+              create, and grow.
             </p>
 
             <p className="text-lg font-semibold text-gray-900 dark:text-white transition-colors duration-300">
-              🎯 Currently seeking an apprenticeship opportunity
+              Currently seeking an apprenticeship opportunity
             </p>
 
             {/* Social Buttons */}
@@ -42,7 +45,7 @@ const Hero = () => {
                 <span className="font-medium">GitHub</span>
               </a>
               <a
-                href="https://linkedin.com/in/clement-garreau"
+                href="https://www.linkedin.com/in/clément-garreau"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300"
@@ -51,14 +54,7 @@ const Hero = () => {
                 <span className="font-medium">LinkedIn</span>
               </a>
               <a
-                href="mailto:garreau.clement@gmail.com"
-                className="flex items-center gap-2 px-6 py-3 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300"
-              >
-                <Mail size={20} />
-                <span className="font-medium">Email</span>
-              </a>
-              <a
-                href="/CV_Clement_Garreau.pdf"
+                href="/portfolio/CV_Clement_Garreau.pdf"
                 download
                 className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-300"
               >
@@ -72,9 +68,9 @@ const Hero = () => {
           <div className="hidden lg:flex justify-center items-center">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur-2xl opacity-20"></div>
-              <img 
-                src="/photo.jpg" 
-                alt="Clément Garreau - Junior Developer" 
+              <img
+                src="/portfolio/photo.jpg"
+                alt="Clément Garreau - Junior Developer"
                 className="relative w-full max-w-md rounded-2xl shadow-2xl object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
@@ -82,7 +78,7 @@ const Hero = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

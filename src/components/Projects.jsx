@@ -1,34 +1,35 @@
-import { ExternalLink, Github } from 'lucide-react'
+import { Github, ChevronDown, ChevronUp } from 'lucide-react'
+import { useState } from 'react'
 
 const Projects = () => {
+  const [expandedProject, setExpandedProject] = useState(null)
+
   const projects = [
     {
       id: 1,
       title: 'ECHO',
       subtitle: 'YouTube Video Learning Platform',
       description: 'An innovative application that generates summaries, quizzes, and provides an AI chatbot to help you learn from any YouTube video. Transform video content into interactive learning materials.',
-      challenge: 'Challenge: Extracting meaningful content from YouTube videos and converting it into structured learning materials while maintaining accuracy.',
-      solution: 'Solution: Implemented video transcription processing with natural language processing to generate contextualized summaries and quiz questions. Built an interactive chatbot using AI to answer questions about the video content.',
-      result: 'Result: Successfully created a tool that transforms passive video watching into active learning, helping students retain information better through interactive quizzes and instant Q&A support.',
+      detailedDescription: 'The main challenge was extracting meaningful content from YouTube videos and converting it into structured learning materials while maintaining accuracy. I implemented video transcription processing with natural language processing to generate contextualized summaries and quiz questions, and built an interactive chatbot using AI to answer questions about the video content. This project successfully created a tool that transforms passive video watching into active learning, helping students retain information better through interactive quizzes and instant Q&A support.',
       technologies: ['Ruby', 'HTML', 'SCSS', 'JavaScript', 'MySQL'],
       image: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      codeUrl: '#',
-      demoUrl: '#',
+      codeUrl: 'https://github.com/Matmaaar/echo_le_wagon',
     },
     {
       id: 2,
       title: 'CoffeeJob',
       subtitle: 'Job Board Platform',
       description: 'A modern job board platform developed as a student project. Features job listings, company profiles, and application management with an intuitive and responsive interface.',
-      challenge: 'Challenge: Creating a user-friendly platform that connects job seekers with employers while ensuring a smooth experience on all devices.',
-      solution: 'Solution: Developed a responsive React application with Tailwind CSS for rapid UI development. Implemented efficient filtering and search features to help users find relevant opportunities quickly.',
-      result: 'Result: Delivered a fully functional job board with clean UI/UX that showcases modern web development practices and responsive design principles.',
+      detailedDescription: 'The challenge was creating a user-friendly platform that connects job seekers with employers while ensuring a smooth experience on all devices. I developed a responsive React application with Tailwind CSS for rapid UI development and implemented efficient filtering and search features to help users find relevant opportunities quickly. The result is a fully functional job board with clean UI/UX that showcases modern web development practices and responsive design principles.',
       technologies: ['React', 'JavaScript', 'HTML', 'Tailwind', 'Vite'],
       image: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      codeUrl: '#',
-      demoUrl: '#',
+      codeUrl: 'https://github.com/EpitechMscProPromo2028/T-WEB-501-NAN_1',
     },
   ]
+
+  const toggleExpand = (projectId) => {
+    setExpandedProject(expandedProject === projectId ? null : projectId)
+  }
 
   return (
     <section id="projects" className="min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
@@ -78,23 +79,28 @@ const Projects = () => {
                       {project.description}
                     </p>
 
-                    {/* Challenge, Solution, Result */}
-                    <div className="space-y-3 text-sm">
-                      <div className="p-3 bg-red-50 dark:bg-red-900/10 rounded-lg border-l-4 border-red-500">
-                        <p className="text-gray-700 dark:text-gray-300">
-                          <span className="font-semibold text-red-600 dark:text-red-400">💡 {project.challenge}</span>
-                        </p>
-                      </div>
-                      <div className="p-3 bg-blue-50 dark:bg-blue-900/10 rounded-lg border-l-4 border-blue-500">
-                        <p className="text-gray-700 dark:text-gray-300">
-                          <span className="font-semibold text-blue-600 dark:text-blue-400">🔧 {project.solution}</span>
-                        </p>
-                      </div>
-                      <div className="p-3 bg-green-50 dark:bg-green-900/10 rounded-lg border-l-4 border-green-500">
-                        <p className="text-gray-700 dark:text-gray-300">
-                          <span className="font-semibold text-green-600 dark:text-green-400">✅ {project.result}</span>
-                        </p>
-                      </div>
+                    {/* Learn More Section */}
+                    <div className="space-y-3">
+                      <button
+                        onClick={() => toggleExpand(project.id)}
+                        className="flex items-center gap-2 text-gray-900 dark:text-white font-semibold hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+                      >
+                        <span>Learn more about this project</span>
+                        {expandedProject === project.id ? (
+                          <ChevronUp size={20} />
+                        ) : (
+                          <ChevronDown size={20} />
+                        )}
+                      </button>
+
+                      {/* Expanded Details */}
+                      {expandedProject === project.id && (
+                        <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border-l-4 border-blue-500 transition-all duration-300 animate-in">
+                          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            {project.detailedDescription}
+                          </p>
+                        </div>
+                      )}
                     </div>
 
                     {/* Technologies */}
@@ -113,17 +119,12 @@ const Projects = () => {
                     <div className="flex gap-4 pt-4">
                       <a
                         href={project.codeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center gap-2 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors duration-300"
                       >
                         <Github size={20} />
-                        <span className="font-medium">Code</span>
-                      </a>
-                      <a
-                        href={project.demoUrl}
-                        className="flex items-center gap-2 px-6 py-3 bg-white dark:bg-gray-800 border-2 border-gray-900 dark:border-gray-700 text-gray-900 dark:text-white rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-300"
-                      >
-                        <ExternalLink size={20} />
-                        <span className="font-medium">Demo</span>
+                        <span className="font-medium">View Code</span>
                       </a>
                     </div>
                   </div>
@@ -137,7 +138,7 @@ const Projects = () => {
           <p className="text-gray-600 dark:text-gray-300 text-lg transition-colors duration-300">
             More projects available on my{' '}
             <a
-              href="https://github.com/clementgarreau"
+              href="https://github.com/garro3"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-900 dark:text-white font-semibold hover:underline transition-colors duration-300"
