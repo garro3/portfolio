@@ -11,17 +11,17 @@ Deployed at: https://garro3.github.io/portfolio/
 - **React Router** - Navigation entre sections
 - **Lucide React** - Bibliothèque d'icônes modernes
 
-## ✨ Fonctionnalités
+##  Fonctionnalités
 
-- 🎨 Design moderne et épuré
-- 📱 Entièrement responsive (mobile, tablette, desktop)
-- 🎯 Navigation fluide avec smooth scroll
-- 🔄 Animations et transitions soignées
-- 📝 Formulaire de contact avec validation
-- 🎭 Sidebar fixe avec indicateur de section active
-- ⚡ Performance optimisée
+- Design moderne et épuré
+-  Entièrement responsive (mobile, tablette, desktop)
+-  Navigation fluide avec smooth scroll
+-  Animations et transitions soignées
+-  Formulaire de contact avec validation
+-  Sidebar fixe avec indicateur de section active
+-  Performance optimisée
 
-## 📋 Sections
+##  Sections
 
 1. **Accueil** - Présentation et liens sociaux
 2. **À propos** - Parcours et statistiques
@@ -86,13 +86,12 @@ npm run deploy
 
 4. Activez GitHub Pages dans les paramètres du repository
    - Allez dans Settings > Pages
-   - Source: Deploy from a branch
-   - Branch: `gh-pages` / `root`
-   - Sauvegardez
+   - Source: Deploy Action
+  
 
 5. Votre site sera accessible à l'adresse :
 ```
-https://epitechmscpropromo2028.github.io/T-JAV-500-day05-NAN_clement-garreau/
+[https://epitechmscpropromo2028.github.io/T-JAV-500-day05-NAN_clement-garreau/](https://garro3.github.io/portfolio/)
 ```
 
 ### Mise à jour du site
@@ -182,3 +181,4 @@ Ce projet est personnel et peut être utilisé comme référence pour vos propre
 ---
 
 Développé par Clément Garreau
+
