@@ -35,6 +35,16 @@ const Projects = () => {
       image: 'linear-gradient(135deg, #FF8800 0%, #000000 100%)',
       codeUrl: 'https://github.com/EpitechMscProPromo2028/T-JSF-600-NAN_1',
     },
+    {
+      id: 4,
+      title: 'Zombien Game',
+      subtitle: 'Java Game with libGDX',
+      description: 'A engaging game project developed in Java using the libGDX framework. Features cross-platform support with LWJGL3 backend, Gradle build system, and modular architecture. Playable on desktop platforms with executable builds.',
+      detailedDescription: 'Zombien Game showcases game development fundamentals using libGDX, a robust Java game development framework. The project demonstrates a well-organized multi-module architecture with separate core logic and platform-specific implementations (LWJGL3 for desktop). Built with Gradle for dependency management and automated builds, the game includes comprehensive build scripts and the ability to generate Windows executables. The development includes unit tests, proper module separation between game logic (core) and platform implementations, and optimized builds for different platforms. This project highlights understanding of game development patterns, Java ecosystem tools, and cross-platform distribution.',
+      technologies: ['Java', 'libGDX', 'LWJGL3', 'Gradle', 'Game Development'],
+      image: 'linear-gradient(135deg, #22c55e 0%, #000000 100%)',
+      codeUrl: 'https://github.com/EpitechMscProPromo2028/T-JAV-501-NAN_2',
+    },
   ]
 
   const toggleExpand = (projectId) => {
