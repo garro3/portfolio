@@ -25,6 +25,16 @@ const Projects = () => {
       image: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
       codeUrl: 'https://github.com/EpitechMscProPromo2028/T-WEB-501-NAN_1',
     },
+    {
+      id: 3,
+      title: 'MBC',
+      subtitle: 'Real-Time Chat with Minitel Aesthetic',
+      description: 'A real-time communication application inspired by the retro Minitel aesthetic. Built with Rust (Axum) backend and Next.js frontend, featuring server management, role-based access control, WebSocket broadcasting, and instant message synchronization.',
+      detailedDescription: 'MBC is a collaborative platform combining Rust backend robustness with modern frontend development. The challenge was creating a real-time messaging system with WebSocket support, server hierarchies (Owner/Admin/Member), and synchronous state management. I implemented hexagonal architecture on the backend for clean separation of concerns, PostgreSQL with SeaORM for type-safe database operations, and JWT authentication for security. The frontend leverages Next.js 16 with TypeScript and Tailwind CSS to create an immersive retro Minitel experience with orange/yellow/black color scheme, monospace typography, and custom scrollbars. Features include online status indicators, typing notifications, instant message deletion, and comprehensive role management.',
+      technologies: ['Rust', 'Axum', 'PostgreSQL', 'Next.js', 'React', 'TypeScript', 'WebSocket', 'Tailwind'],
+      image: 'linear-gradient(135deg, #FF8800 0%, #000000 100%)',
+      codeUrl: 'https://github.com/EpitechMscProPromo2028/T-JSF-600-NAN_1',
+    },
   ]
 
   const toggleExpand = (projectId) => {
