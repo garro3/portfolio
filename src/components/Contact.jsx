@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Mail, Phone, MapPin, Send } from 'lucide-react'
+import { Mail, MapPin, Send } from 'lucide-react'
+import HCaptcha from '@hcaptcha/react-hcaptcha'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,7 @@ const Contact = () => {
     subject: '',
     message: '',
   })
+  const [captchaToken, setCaptchaToken] = useState(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null)
 
@@ -21,6 +23,13 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    
+    if (!captchaToken) {
+      setSubmitStatus('captcha_required')
+      setTimeout(() => setSubmitStatus(null), 3000)
+      return
+    }
+
     setIsSubmitting(true)
     
     try {
@@ -36,6 +45,7 @@ const Contact = () => {
         setIsSubmitting(false)
         setSubmitStatus('success')
         setFormData({ name: '', email: '', subject: '', message: '' })
+        setCaptchaToken(null)
         
         setTimeout(() => {
           setSubmitStatus(null)
@@ -53,17 +63,15 @@ const Contact = () => {
     }
   }
 
+  const handleCaptchaVerify = (token) => {
+    setCaptchaToken(token)
+  }
+
   const contactInfo = [
     {
       icon: Mail,
       label: 'Email',
       value: 'garreau.clem03@gmail.com',
-      href: null,
-    },
-    {
-      icon: Phone,
-      label: 'Phone',
-      value: '07 69 87 73 93',
       href: null,
     },
     {
@@ -207,6 +215,16 @@ const Contact = () => {
                 />
               </div>
 
+              {/* hCaptcha Widget */}
+              <div className="flex justify-center">
+                <HCaptcha
+                  sitekey="50de38ca-eaad-47f2-b476-832b6da0a375"
+                  onVerify={handleCaptchaVerify}
+                  theme="light"
+                  className="dark:[color-scheme:dark]"
+                />
+              </div>
+
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -234,6 +252,12 @@ const Contact = () => {
               {submitStatus === 'error' && (
                 <div className="p-4 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-700 text-red-700 dark:text-red-400 rounded-lg text-center transition-colors duration-300">
                   ✗ Failed to send message. Please try again or contact me directly.
+                </div>
+              )}
+
+              {submitStatus === 'captcha_required' && (
+                <div className="p-4 bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-700 text-yellow-700 dark:text-yellow-400 rounded-lg text-center transition-colors duration-300">
+                  ⚠ Please verify that you are human using the CAPTCHA above.
                 </div>
               )}
             </form>
