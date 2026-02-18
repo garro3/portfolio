@@ -13,7 +13,7 @@ const Projects = () => {
       detailedDescription: 'The main challenge was extracting meaningful content from YouTube videos and converting it into structured learning materials while maintaining accuracy. I implemented video transcription processing with natural language processing to generate contextualized summaries and quiz questions, and built an interactive chatbot using AI to answer questions about the video content. This project successfully created a tool that transforms passive video watching into active learning, helping students retain information better through interactive quizzes and instant Q&A support.',
       technologies: ['Ruby', 'HTML', 'SCSS', 'JavaScript', 'MySQL'],
       image: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      codeUrl: 'https://github.com/Matmaaar/echo_le_wagon',
+      codeUrl: 'https://github.com/garro3/Echo',
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ const Projects = () => {
       detailedDescription: 'The challenge was creating a user-friendly platform that connects job seekers with employers while ensuring a smooth experience on all devices. I developed a responsive React application with Tailwind CSS for rapid UI development and implemented efficient filtering and search features to help users find relevant opportunities quickly. The result is a fully functional job board with clean UI/UX that showcases modern web development practices and responsive design principles.',
       technologies: ['React', 'JavaScript', 'HTML', 'Tailwind', 'Vite'],
       image: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      codeUrl: 'https://github.com/EpitechMscProPromo2028/T-WEB-501-NAN_1',
+      codeUrl: 'https://github.com/garro3/Coffe-Jobs',
     },
     {
       id: 3,
@@ -33,17 +33,17 @@ const Projects = () => {
       detailedDescription: 'MBC is a collaborative platform combining Rust backend robustness with modern frontend development. The challenge was creating a real-time messaging system with WebSocket support, server hierarchies (Owner/Admin/Member), and synchronous state management. I implemented hexagonal architecture on the backend for clean separation of concerns, PostgreSQL with SeaORM for type-safe database operations, and JWT authentication for security. The frontend leverages Next.js 16 with TypeScript and Tailwind CSS to create an immersive retro Minitel experience with orange/yellow/black color scheme, monospace typography, and custom scrollbars. Features include online status indicators, typing notifications, instant message deletion, and comprehensive role management.',
       technologies: ['Rust', 'Axum', 'PostgreSQL', 'Next.js', 'React', 'TypeScript', 'WebSocket', 'Tailwind'],
       image: 'linear-gradient(135deg, #FF8800 0%, #000000 100%)',
-      codeUrl: 'https://github.com/EpitechMscProPromo2028/T-JSF-600-NAN_1',
+      codeUrl: 'https://github.com/garro3/MBC---Miniboy-Chat',
     },
     {
       id: 4,
-      title: 'Zombien Game',
+      title: 'Zombie Game',
       subtitle: 'Java Game with libGDX',
       description: 'A engaging game project developed in Java using the libGDX framework. Features cross-platform support with LWJGL3 backend, Gradle build system, and modular architecture. Playable on desktop platforms with executable builds.',
       detailedDescription: 'Zombien Game showcases game development fundamentals using libGDX, a robust Java game development framework. The project demonstrates a well-organized multi-module architecture with separate core logic and platform-specific implementations (LWJGL3 for desktop). Built with Gradle for dependency management and automated builds, the game includes comprehensive build scripts and the ability to generate Windows executables. The development includes unit tests, proper module separation between game logic (core) and platform implementations, and optimized builds for different platforms. This project highlights understanding of game development patterns, Java ecosystem tools, and cross-platform distribution.',
       technologies: ['Java', 'libGDX', 'LWJGL3', 'Gradle', 'Game Development'],
       image: 'linear-gradient(135deg, #22c55e 0%, #000000 100%)',
-      codeUrl: 'https://github.com/EpitechMscProPromo2028/T-JAV-501-NAN_2',
+      codeUrl: 'https://github.com/garro3/Zombie-Game',
     },
   ]
 

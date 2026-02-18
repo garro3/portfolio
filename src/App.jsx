@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from './context/ThemeContext'
 import Sidebar from './components/Sidebar'
 import ThemeToggle from './components/ThemeToggle'
@@ -9,22 +10,34 @@ import Experience from './components/Experience'
 import Contact from './components/Contact'
 import NotFound from './components/NotFound'
 
+function HomePage() {
+  return (
+    <>
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Experience />
+      <Contact />
+    </>
+  )
+}
+
 function App() {
   return (
     <ThemeProvider>
-      <div className="flex min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-        <Sidebar />
-        <ThemeToggle />
-        <main className="flex-1 md:ml-20">
-          <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <Experience />
-          <Contact />
-          <NotFound />
-        </main>
-      </div>
+      <BrowserRouter basename="/portfolio">
+        <div className="flex min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+          <Sidebar />
+          <ThemeToggle />
+          <main className="flex-1 md:ml-20">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+        </div>
+      </BrowserRouter>
     </ThemeProvider>
   )
 }

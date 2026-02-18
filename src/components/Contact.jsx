@@ -77,7 +77,7 @@ const Contact = () => {
     {
       icon: MapPin,
       label: 'Location',
-      value: 'France',
+      value: 'Nantes',
       href: null,
     },
   ]

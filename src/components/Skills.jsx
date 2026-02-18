@@ -1,14 +1,30 @@
+import {
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiPython,
+  SiPhp,
+  SiGit,
+  SiReact,
+  SiRuby,
+  SiDocker,
+  SiJenkins,
+} from 'react-icons/si'
+import { FaJava } from 'react-icons/fa'
+
 const Skills = () => {
   const skills = [
-    { name: 'HTML', color: 'text-orange-600', bg: 'bg-orange-50 dark:bg-orange-900/20' },
-    { name: 'CSS', color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-900/20' },
-    { name: 'JavaScript', color: 'text-yellow-500', bg: 'bg-yellow-50 dark:bg-yellow-900/20' },
-    { name: 'Java', color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-900/20' },
-    { name: 'Python', color: 'text-blue-500', bg: 'bg-blue-50 dark:bg-blue-900/20' },
-    { name: 'PHP', color: 'text-indigo-600', bg: 'bg-indigo-50 dark:bg-indigo-900/20' },
-    { name: 'Git', color: 'text-orange-600', bg: 'bg-orange-50 dark:bg-orange-900/20' },
-    { name: 'React', color: 'text-cyan-500', bg: 'bg-cyan-50 dark:bg-cyan-900/20' },
-    { name: 'Ruby', color: 'text-red-500', bg: 'bg-red-50 dark:bg-red-900/20' },
+    { name: 'HTML', icon: SiHtml5, color: '#E34C26' },
+    { name: 'CSS', icon: SiCss3, color: '#1572B6' },
+    { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
+    { name: 'Java', icon: FaJava, color: '#007396' },
+    { name: 'Python', icon: SiPython, color: '#3776AB' },
+    { name: 'PHP', icon: SiPhp, color: '#777BB4' },
+    { name: 'Git', icon: SiGit, color: '#F1502F' },
+    { name: 'React', icon: SiReact, color: '#61DAFB' },
+    { name: 'Ruby', icon: SiRuby, color: '#CC342D' },
+    { name: 'Docker', icon: SiDocker, color: '#2496ED' },
+    { name: 'Jenkins', icon: SiJenkins, color: '#D33833' },
   ]
 
   return (
@@ -18,28 +34,33 @@ const Skills = () => {
           My Skills
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {skills.map((skill, index) => (
-            <div
-              key={index}
-              className="bg-white dark:bg-gray-800 rounded-2xl p-6 card-shadow hover:card-shadow-hover transition-all duration-300 hover:-translate-y-2 hover:scale-105 group cursor-pointer"
-            >
-              <div className="flex flex-col items-center gap-3">
-                <div className={`${skill.bg} ${skill.color} w-16 h-16 rounded-xl flex items-center justify-center text-2xl font-bold group-hover:scale-110 transition-transform duration-300`}>
-                  {skill.name.slice(0, 2).toUpperCase()}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8">
+          {skills.map((skill) => {
+            const Icon = skill.icon
+            return (
+              <div
+                key={skill.name}
+                className="flex flex-col items-center gap-4 p-6 rounded-2xl bg-gray-100 dark:bg-gray-800 card-shadow hover:card-shadow-hover transition-all duration-300 hover:-translate-y-2 group cursor-pointer"
+              >
+                <div className="w-16 h-16 flex items-center justify-center rounded-xl bg-gray-50 dark:bg-gray-700 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300">
+                  <Icon 
+                    size={32} 
+                    style={{ color: skill.color }}
+                    className="group-hover:drop-shadow-lg transition-all duration-300"
+                  />
                 </div>
-                <span className="text-gray-900 dark:text-white font-semibold text-center transition-colors duration-300">
+                <span className="text-gray-900 dark:text-white font-semibold text-center text-sm md:text-base transition-colors duration-300">
                   {skill.name}
                 </span>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
 
         <div className="mt-16 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 text-center transition-colors duration-300">
           <p className="text-lg text-gray-600 dark:text-gray-300 transition-colors duration-300">
             <span className="font-semibold text-gray-900 dark:text-white">Always learning</span> 
-            {' '}— I continuously train myself in the latest technologies and new language.
+            {' '}— I continuously train myself in the latest technologies and new languages.
           </p>
         </div>
       </div>
