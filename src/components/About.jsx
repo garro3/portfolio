@@ -1,29 +1,29 @@
 import { Code, Coffee, Lightbulb } from "lucide-react";
 
 const About = () => {
-  const stats = [
-    {
-      icon: Code,
-      value: "15+",
-      label: "Projects",
-      color: "text-blue-600",
-      bg: "bg-blue-50 dark:bg-blue-900/20",
-    },
-    {
-      icon: Coffee,
-      value: "1000+",
-      label: "Coffees",
-      color: "text-amber-600",
-      bg: "bg-amber-50 dark:bg-amber-900/20",
-    },
-    {
-      icon: Lightbulb,
-      value: "∞",
-      label: "Ideas",
-      color: "text-purple-600",
-      bg: "bg-purple-50 dark:bg-purple-900/20",
-    },
-  ];
+//   const stats = [
+//     {
+//       icon: Code,
+//       value: "15+",
+//       label: "Projects",
+//       color: "text-blue-600",
+//       bg: "bg-blue-50 dark:bg-blue-900/20",
+//     },
+//     {
+//       icon: Coffee,
+//       value: "1000+",
+//       label: "Coffees",
+//       color: "text-amber-600",
+//       bg: "bg-amber-50 dark:bg-amber-900/20",
+//     },
+//     {
+//       icon: Lightbulb,
+//       value: "∞",
+//       label: "Ideas",
+//       color: "text-purple-600",
+//       bg: "bg-purple-50 dark:bg-purple-900/20",
+//     },
+//   ];
 
   return (
     <section
@@ -60,30 +60,30 @@ const About = () => {
           </div>
 
           {/* Right Content - Stats Cards */}
-          <div className="grid gap-6">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="bg-white dark:bg-gray-900 rounded-2xl p-6 card-shadow hover:card-shadow-hover transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="flex items-center gap-4">
-                  <div
-                    className={`${stat.bg} ${stat.color} p-4 rounded-xl transition-colors duration-300`}
-                  >
-                    <stat.icon size={32} />
-                  </div>
-                  <div>
-                    <div className="text-3xl font-bold text-gray-900 dark:text-white transition-colors duration-300">
-                      {stat.value}
-                    </div>
-                    <div className="text-gray-600 dark:text-gray-300 font-medium transition-colors duration-300">
-                      {stat.label}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+{/*           <div className="grid gap-6"> */}
+{/*             {stats.map((stat, index) => ( */}
+{/*               <div */}
+{/*                 key={index} */}
+{/*                 className="bg-white dark:bg-gray-900 rounded-2xl p-6 card-shadow hover:card-shadow-hover transition-all duration-300 hover:-translate-y-1" */}
+{/*               > */}
+{/*                 <div className="flex items-center gap-4"> */}
+{/*                   <div */}
+{/*                     className={`${stat.bg} ${stat.color} p-4 rounded-xl transition-colors duration-300`} */}
+{/*                   > */}
+{/*                     <stat.icon size={32} /> */}
+{/*                   </div> */}
+{/*                   <div> */}
+{/*                     <div className="text-3xl font-bold text-gray-900 dark:text-white transition-colors duration-300"> */}
+{/*                       {stat.value} */}
+{/*                     </div> */}
+{/*                     <div className="text-gray-600 dark:text-gray-300 font-medium transition-colors duration-300"> */}
+{/*                       {stat.label} */}
+{/*                     </div> */}
+{/*                   </div> */}
+{/*                 </div> */}
+{/*               </div> */}
+{/*             ))} */}
+{/*           </div> */}
         </div>
       </div>
     </section>
