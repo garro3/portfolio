@@ -1,4 +1,4 @@
-import { Github, ChevronDown, ChevronUp } from 'lucide-react'
+import { GithubIcon, ChevronDown, ChevronUp } from 'lucide-react'
 import { useState } from 'react'
 
 const Projects = () => {
@@ -52,9 +52,9 @@ const Projects = () => {
   }
 
   return (
-    <section id="projects" className="min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+    <section id="projects" className="da-section min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-20 transition-colors duration-300">
       <div className="max-w-7xl w-full mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-12 transition-colors duration-300">
+        <h2 className="da-title text-4xl md:text-5xl font-bold mb-12 transition-colors duration-300">
           My Projects
         </h2>
 
@@ -62,7 +62,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className={`bg-white dark:bg-gray-900 rounded-3xl overflow-hidden card-shadow hover:card-shadow-hover transition-all duration-300 ${
+                className={`da-card rounded-3xl overflow-hidden card-shadow hover:card-shadow-hover transition-all duration-300 ${
                 index % 2 === 0 ? '' : ''
               }`}
             >
@@ -115,7 +115,7 @@ const Projects = () => {
 
                       {/* Expanded Details */}
                       {expandedProject === project.id && (
-                        <div className="p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border-l-4 border-blue-500 transition-all duration-300 animate-in">
+                        <div className="p-4 bg-white/65 dark:bg-slate-900/65 rounded-lg border-l-4 border-blue-500 transition-all duration-300 animate-in">
                           <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                             {project.detailedDescription}
                           </p>
@@ -128,7 +128,7 @@ const Projects = () => {
                       {project.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium transition-colors duration-300"
+                            className="px-4 py-2 bg-white/70 dark:bg-slate-900/60 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-medium border border-slate-300/40 dark:border-slate-700/40 transition-colors duration-300"
                         >
                           {tech}
                         </span>
@@ -141,9 +141,9 @@ const Projects = () => {
                         href={project.codeUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors duration-300"
+                        className="da-btn-primary flex items-center gap-2 px-6 py-3 rounded-xl transition-all duration-300"
                       >
-                        <Github size={20} />
+                        <GithubIcon size={20} />
                         <span className="font-medium">View Code</span>
                       </a>
                     </div>

@@ -16,14 +16,246 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: radial-gradient(circle at 15% 15%, rgb(147 197 253 / 18%), transparent 48%),
+    radial-gradient(circle at 85% 10%, rgb(196 181 253 / 16%), transparent 42%),
+    linear-gradient(180deg, #f5f8ff 0%, #edf2ff 55%, #e8efff 100%);
+}
+
+.dark body {
+  background: radial-gradient(circle at 12% 12%, rgb(56 189 248 / 12%), transparent 45%),
+    radial-gradient(circle at 88% 8%, rgb(168 85 247 / 10%), transparent 40%),
+    linear-gradient(180deg, #020617 0%, #020b1f 55%, #020617 100%);
+}
+
+.site-aurora {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.aurora-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 10%, transparent 0, transparent 44%, rgb(15 23 42 / 10%) 100%);
+}
+
+.aurora-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgb(148 163 184 / 10%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(148 163 184 / 10%) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(circle at center, black 20%, transparent 88%);
+  animation: gridPan 24s linear infinite;
+}
+
+.aurora-layer {
+  position: absolute;
+  inset: -18%;
+  filter: blur(74px);
+  opacity: 0.74;
+}
+
+.aurora-blob {
+  position: absolute;
+  width: 58vw;
+  height: 58vw;
+  border-radius: 9999px;
+  animation: auroraDrift 16s ease-in-out infinite alternate;
+}
+
+.aurora-blob-1 {
+  left: -10%;
+  top: -8%;
+  background: radial-gradient(circle, rgb(56 189 248 / 46%) 0%, rgb(56 189 248 / 0%) 65%);
+}
+
+.aurora-blob-2 {
+  right: -12%;
+  top: 18%;
+  background: radial-gradient(circle, rgb(129 140 248 / 42%) 0%, rgb(129 140 248 / 0%) 68%);
+  animation-duration: 18s;
+}
+
+.aurora-blob-3 {
+  left: 22%;
+  bottom: -18%;
+  background: radial-gradient(circle, rgb(167 139 250 / 40%) 0%, rgb(167 139 250 / 0%) 70%);
+  animation-duration: 14s;
+}
+
+.particle-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.aurora-particle {
+  --particle-twinkle-duration: 8s;
+  --particle-x: 14px;
+  --particle-y: -18px;
+  position: absolute;
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 36%);
+  box-shadow: 0 0 7px rgb(96 165 250 / 26%);
+  animation: particleFloat linear infinite, particleTwinkle var(--particle-twinkle-duration, 8s) ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+.dark .aurora-layer {
+  opacity: 0.86;
+}
+
+.dark .aurora-particle {
+  background: rgb(191 219 254 / 40%);
+  box-shadow: 0 0 9px rgb(147 197 253 / 32%);
+}
+
+.dark .aurora-grid {
+  background-image: linear-gradient(rgb(71 85 105 / 26%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(71 85 105 / 26%) 1px, transparent 1px);
+}
+
+.da-section {
+  position: relative;
+  margin: 0.8rem 0.5rem;
+  border: 1px solid rgb(148 163 184 / 24%);
+  border-radius: 1.5rem;
+  background: linear-gradient(145deg, rgb(255 255 255 / 72%), rgb(241 245 249 / 52%));
+  backdrop-filter: blur(9px);
+}
+
+.dark .da-section {
+  border-color: rgb(148 163 184 / 18%);
+  background: linear-gradient(145deg, rgb(15 23 42 / 56%), rgb(2 6 23 / 60%));
+}
+
+.da-title {
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.dark .da-title {
+  color: rgb(241 245 249);
+}
+
+.da-kicker {
+  color: rgb(71 85 105);
+}
+
+.dark .da-kicker {
+  color: rgb(148 163 184);
+}
+
+.da-card {
+  border: 1px solid rgb(148 163 184 / 26%);
+  background: linear-gradient(160deg, rgb(255 255 255 / 74%), rgb(241 245 249 / 44%));
+  backdrop-filter: blur(8px);
+}
+
+.dark .da-card {
+  border-color: rgb(148 163 184 / 20%);
+  background: linear-gradient(160deg, rgb(15 23 42 / 70%), rgb(2 6 23 / 56%));
+}
+
+.da-btn-primary {
+  border: 1px solid rgb(147 197 253 / 55%);
+  background: linear-gradient(135deg, rgb(37 99 235), rgb(124 58 237));
+  color: white;
+  box-shadow: 0 8px 24px rgb(59 130 246 / 30%);
+}
+
+.da-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgb(59 130 246 / 34%);
+}
+
+.da-btn-secondary {
+  border: 1px solid rgb(148 163 184 / 35%);
+  background: rgb(255 255 255 / 58%);
+  color: rgb(15 23 42);
+}
+
+.dark .da-btn-secondary {
+  border-color: rgb(148 163 184 / 28%);
+  background: rgb(15 23 42 / 72%);
+  color: rgb(241 245 249);
+}
+
+.da-input {
+  border: 1px solid rgb(148 163 184 / 38%);
+  background: rgb(255 255 255 / 64%);
+}
+
+.dark .da-input {
+  border-color: rgb(71 85 105 / 65%);
+  background: rgb(15 23 42 / 72%);
+}
+
+@keyframes auroraDrift {
+  0% {
+    transform: translate3d(-4%, -2%, 0) scale(0.98) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(4%, 3%, 0) scale(1.12) rotate(2deg);
+  }
+  100% {
+    transform: translate3d(-2%, 6%, 0) scale(0.95) rotate(-2deg);
+  }
+}
+
+@keyframes gridPan {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(42px, 42px, 0);
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.16;
+  }
+  35% {
+    opacity: 0.45;
+  }
+  70% {
+    opacity: 0.28;
+  }
+  100% {
+    transform: translate3d(var(--particle-x, 14px), var(--particle-y, -18px), 0);
+    opacity: 0.12;
+  }
+}
+
+@keyframes particleTwinkle {
+  0%,
+  100% {
+    filter: blur(0);
+    transform: scale(1);
+  }
+  50% {
+    filter: blur(0.3px);
+    transform: scale(1.28);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-grid,
+  .aurora-blob,
+  .aurora-particle {
+    animation: none;
+  }
 }
 
 @layer utilities {
   .card-shadow {
-    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    box-shadow: 0 8px 26px rgb(15 23 42 / 10%);
   }
   
   .card-shadow-hover {
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    box-shadow: 0 18px 34px rgb(15 23 42 / 16%);
   }
 }

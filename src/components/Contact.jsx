@@ -1,15 +1,16 @@
 import { useState } from 'react'
 import { Mail, MapPin, Send } from 'lucide-react'
-import HCaptcha from '@hcaptcha/react-hcaptcha'
 
 const Contact = () => {
+  const STATUS_RESET_DELAY_MS = 3000
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: '',
   })
-  const [captchaToken, setCaptchaToken] = useState(null)
+
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null)
 
@@ -23,14 +24,15 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    
-    if (!captchaToken) {
-      setSubmitStatus('captcha_required')
-      setTimeout(() => setSubmitStatus(null), 3000)
-      return
-    }
 
     setIsSubmitting(true)
+
+    const showStatusWithAutoReset = (status) => {
+      setSubmitStatus(status)
+      setTimeout(() => {
+        setSubmitStatus(null)
+      }, STATUS_RESET_DELAY_MS)
+    }
     
     try {
       const response = await fetch('https://formspree.io/f/xwpwplbw', {
@@ -42,29 +44,16 @@ const Contact = () => {
       })
       
       if (response.ok) {
-        setIsSubmitting(false)
-        setSubmitStatus('success')
+        showStatusWithAutoReset('success')
         setFormData({ name: '', email: '', subject: '', message: '' })
-        setCaptchaToken(null)
-        
-        setTimeout(() => {
-          setSubmitStatus(null)
-        }, 3000)
       } else {
-        throw new Error('Form submission failed')
+        showStatusWithAutoReset('error')
       }
     } catch (error) {
+      showStatusWithAutoReset('error')
+    } finally {
       setIsSubmitting(false)
-      setSubmitStatus('error')
-      
-      setTimeout(() => {
-        setSubmitStatus(null)
-      }, 3000)
     }
-  }
-
-  const handleCaptchaVerify = (token) => {
-    setCaptchaToken(token)
   }
 
   const contactInfo = [
@@ -72,20 +61,19 @@ const Contact = () => {
       icon: Mail,
       label: 'Email',
       value: 'garreau.clem03@gmail.com',
-      href: null,
+      href: 'mailto:garreau.clem03@gmail.com',
     },
     {
       icon: MapPin,
       label: 'Location',
       value: 'Nantes',
-      href: null,
     },
   ]
 
   return (
-    <section id="contact" className="min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+    <section id="contact" className="da-section min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-20 transition-colors duration-300">
       <div className="max-w-7xl w-full mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 transition-colors duration-300">
+        <h2 className="da-title text-4xl md:text-5xl font-bold mb-6 transition-colors duration-300">
           Contact Me
         </h2>
         <p className="text-xl text-gray-600 dark:text-gray-300 mb-12 max-w-2xl transition-colors duration-300">
@@ -106,7 +94,6 @@ const Contact = () => {
               </p>
             </div>
 
-            {/* Contact Details */}
             <div className="space-y-4">
               {contactInfo.map((info, index) => (
                 <div key={index} className="flex items-center gap-4">
@@ -135,21 +122,21 @@ const Contact = () => {
             </div>
 
             {/* Additional Info Card */}
-            <div className="bg-gradient-to-br from-gray-900 to-gray-800 dark:from-gray-700 dark:to-gray-600 text-white rounded-2xl p-8 transition-colors duration-300">
-              <h4 className="text-xl font-bold mb-2">Availability</h4>
-              <p className="text-gray-300 dark:text-gray-200 transition-colors duration-300">
+            <div className="da-card rounded-2xl p-8 transition-colors duration-300">
+              <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Availability</h4>
+              <p className="text-gray-700 dark:text-gray-200 transition-colors duration-300">
                 I'm currently seeking an apprenticeship opportunity 
                 and open to all professional opportunities and collaborations.
               </p>
               <div className="mt-4 flex items-center gap-2">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm font-medium">Open to opportunities</span>
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-200">Open to opportunities</span>
               </div>
             </div>
           </div>
 
           {/* Right Content - Contact Form */}
-          <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 card-shadow transition-colors duration-300">
+          <div className="da-card rounded-2xl p-8 card-shadow transition-colors duration-300">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
@@ -162,7 +149,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white rounded-lg focus:ring-2 focus:ring-gray-900 dark:focus:ring-gray-400 focus:border-transparent transition-all outline-none"
+                  className="da-input w-full px-4 py-3 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500/60 focus:border-transparent transition-all outline-none"
                   placeholder="John Doe"
                 />
               </div>
@@ -178,7 +165,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white rounded-lg focus:ring-2 focus:ring-gray-900 dark:focus:ring-gray-400 focus:border-transparent transition-all outline-none"
+                  className="da-input w-full px-4 py-3 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500/60 focus:border-transparent transition-all outline-none"
                   placeholder="john.doe@example.com"
                 />
               </div>
@@ -194,7 +181,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white rounded-lg focus:ring-2 focus:ring-gray-900 dark:focus:ring-gray-400 focus:border-transparent transition-all outline-none"
+                  className="da-input w-full px-4 py-3 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500/60 focus:border-transparent transition-all outline-none"
                   placeholder="Collaboration opportunity"
                 />
               </div>
@@ -210,25 +197,15 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white rounded-lg focus:ring-2 focus:ring-gray-900 dark:focus:ring-gray-400 focus:border-transparent transition-all outline-none resize-none"
+                  className="da-input w-full px-4 py-3 dark:text-white rounded-lg focus:ring-2 focus:ring-blue-500/60 focus:border-transparent transition-all outline-none resize-none"
                   placeholder="Tell me about your project..."
-                />
-              </div>
-
-              {/* hCaptcha Widget */}
-              <div className="flex justify-center">
-                <HCaptcha
-                  sitekey="50de38ca-eaad-47f2-b476-832b6da0a375"
-                  onVerify={handleCaptchaVerify}
-                  theme="light"
-                  className="dark:[color-scheme:dark]"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors duration-300 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                className="da-btn-primary w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl transition-all duration-300 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>
@@ -255,11 +232,6 @@ const Contact = () => {
                 </div>
               )}
 
-              {submitStatus === 'captcha_required' && (
-                <div className="p-4 bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-700 text-yellow-700 dark:text-yellow-400 rounded-lg text-center transition-colors duration-300">
-                  ⚠ Please verify that you are human using the CAPTCHA above.
-                </div>
-              )}
             </form>
           </div>
         </div>

@@ -34,9 +34,9 @@ const Experience = () => {
   ]
 
   return (
-    <section id="experience" className="min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-20 dark:bg-gray-900 transition-colors duration-300">
+    <section id="experience" className="da-section min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-24 py-20 transition-colors duration-300">
       <div className="max-w-5xl w-full mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-12 transition-colors duration-300">
+        <h2 className="da-title text-4xl md:text-5xl font-bold mb-12 transition-colors duration-300">
           My Journey
         </h2>
 
@@ -45,13 +45,13 @@ const Experience = () => {
           <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700 hidden md:block transition-colors duration-300"></div>
 
           <div className="space-y-12">
-            {experiences.map((exp, index) => (
+            {experiences.map((exp) => (
               <div key={exp.id} className="relative">
                 {/* Timeline Dot */}
                 <div className="absolute left-8 top-8 w-4 h-4 bg-gray-900 dark:bg-white rounded-full transform -translate-x-1/2 hidden md:block transition-colors duration-300"></div>
 
                 {/* Content Card */}
-                <div className="md:ml-20 bg-white dark:bg-gray-800 rounded-2xl p-8 card-shadow hover:card-shadow-hover transition-all duration-300">
+                <div className="md:ml-20 da-card rounded-2xl p-8 card-shadow hover:card-shadow-hover transition-all duration-300">
                   <div className="flex flex-col md:flex-row md:items-start gap-6">
                     {/* Icon */}
                     <div className={`${exp.iconBg} ${exp.iconColor} p-4 rounded-xl shrink-0 transition-colors duration-300`}>

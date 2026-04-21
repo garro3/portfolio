@@ -44,21 +44,21 @@ const Sidebar = () => {
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className="hidden md:flex fixed left-0 top-0 h-screen w-20 bg-sidebar dark:bg-gray-950 flex-col items-center justify-center z-50 transition-colors duration-300">
-        <nav className="flex flex-col gap-8">
+      <aside className="hidden md:flex fixed left-4 top-1/2 -translate-y-1/2 h-[88vh] w-24 rounded-3xl border border-slate-300/40 bg-white/45 dark:bg-slate-900/60 dark:border-slate-700/40 backdrop-blur-xl flex-col items-center justify-center z-50 transition-colors duration-300 shadow-2xl shadow-slate-900/10">
+        <nav className="flex flex-col gap-4">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`group relative p-3 rounded-lg transition-all duration-300 ${
+              className={`group relative p-3 rounded-xl transition-all duration-300 ${
                 activeSection === item.id
-                  ? 'bg-white/10 text-white'
-                  : 'text-gray-400 hover:text-white hover:bg-white/5'
+                  ? 'bg-gradient-to-r from-blue-600 to-violet-600 text-white shadow-lg shadow-blue-500/30'
+                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/70'
               }`}
               aria-label={item.label}
             >
               <item.icon size={24} />
-              <span className="absolute left-full ml-4 px-3 py-2 bg-sidebar dark:bg-gray-950 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+              <span className="absolute left-full ml-4 px-3 py-2 bg-slate-900/85 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none border border-slate-700/60 backdrop-blur-md">
                 {item.label}
               </span>
             </button>
@@ -67,16 +67,16 @@ const Sidebar = () => {
       </aside>
 
       {/* Mobile Bottom Navigation */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-sidebar dark:bg-gray-950 border-t border-white/10 z-50 transition-colors duration-300">
-        <div className="flex justify-around items-center h-16">
+      <nav className="md:hidden fixed bottom-4 left-3 right-3 rounded-2xl border border-slate-300/45 bg-white/70 dark:bg-slate-900/75 dark:border-slate-700/50 backdrop-blur-xl z-50 transition-colors duration-300 shadow-xl shadow-slate-900/15">
+        <div className="flex justify-around items-center h-14">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
               className={`flex flex-col items-center justify-center flex-1 h-full transition-colors duration-300 ${
                 activeSection === item.id
-                  ? 'text-white'
-                  : 'text-gray-400'
+                  ? 'text-blue-600 dark:text-blue-400'
+                  : 'text-slate-500 dark:text-slate-400'
               }`}
               aria-label={item.label}
             >

@@ -9,7 +9,7 @@ const NotFound = () => {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-12 lg:px-24 py-12 sm:py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+    <section className="da-section min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-12 lg:px-24 py-12 sm:py-20 transition-colors duration-300">
       <div className="w-full max-w-2xl mx-auto text-center space-y-6 sm:space-y-8">
         <div className="flex justify-center">
           <div className="bg-red-50 dark:bg-red-900/20 p-4 sm:p-6 rounded-full">
@@ -18,7 +18,7 @@ const NotFound = () => {
         </div>
 
         <div className="space-y-3 sm:space-y-4">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 dark:text-white transition-colors duration-300">
+           <h1 className="da-title text-5xl sm:text-6xl md:text-7xl font-bold transition-colors duration-300">
             404
           </h1>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white transition-colors duration-300">
@@ -36,7 +36,7 @@ const NotFound = () => {
           </p>
           <button
             onClick={scrollToHome}
-            className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors duration-300 font-semibold text-base sm:text-lg"
+            className="da-btn-primary inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 font-semibold text-base sm:text-lg"
             aria-label="Go back to home page"
           >
             <Home size={20} className="sm:w-6 sm:h-6" />
