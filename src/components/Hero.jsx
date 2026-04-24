@@ -56,7 +56,7 @@ const Hero = () => {
                 <span className="font-medium">LinkedIn</span>
               </a>
               <a
-                href={`${baseUrl}CV Garreau.pdf`}
+                href={`${baseUrl}CV_Garreau.pdf`}
                 download
                 className="da-btn-secondary flex items-center gap-2 px-6 py-3 rounded-xl transition-all duration-300"
               >
