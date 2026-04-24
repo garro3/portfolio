@@ -1,7 +1,8 @@
 import { GithubIcon, Linkedin, Download } from "lucide-react";
 
 const Hero = () => {
-  const baseUrl = import.meta.env.BASE_URL
+  const baseUrl = import.meta.env.BASE_URL;
+  const cvUrl = `${baseUrl}CV_Garreau.pdf`;
 
   return (
     <section
@@ -56,8 +57,8 @@ const Hero = () => {
                 <span className="font-medium">LinkedIn</span>
               </a>
               <a
-                href={`${baseUrl}CV_Garreau.pdf`}
-                download
+                href={cvUrl}
+                download="CV_Garreau.pdf"
                 className="da-btn-secondary flex items-center gap-2 px-6 py-3 rounded-xl transition-all duration-300"
               >
                 <Download size={20} />
